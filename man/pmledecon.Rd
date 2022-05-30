@@ -2,7 +2,7 @@
 % Please edit documentation in R/pmledecon.R
 \name{pmledecon}
 \alias{pmledecon}
-\title{Deconvolution Density Estimation using Penalized MLE}
+\title{Deconvolution density estimation using penalized MLE}
 \usage{
 pmledecon(ob,error,supp,n,lmd,R,tsz,stsz,bsz,subid,conv)
 }
@@ -45,7 +45,9 @@ pmledecon(ob,error,supp,n,lmd,R,tsz,stsz,bsz,subid,conv)
   interval is divided into a fixed number of steps (default 1000). This
   sets the number of steps so that for the initial range, the step size
   is stsz.}
+
 \item{bsz}{Optional. The subsample size of the basis. Defalt is rounded result of sample size devided by 10 if the data's sample size is greater than 30 or 20 otherwise.}
+
 \item{subid}{Logical. Indicates whether to print the number of
   subbases completed. This can be helpful for diagnosing cases where
   the function fails to return a value, which can happen if too many
@@ -137,10 +139,10 @@ truth=rnorm(sz,0,1)
 error=rnorm(esz,0,2)
 ob=truth+error
 
-## In order for this example to run quickly, we set tsz=500.
+## In order for this example to run quickly, we set tsz=200.
 ## This is not accurate enough for practical use.
 
-est=pmledecon(ob,error=list("Normal",0,2),tsz=500)
+est=pmledecon(ob,error=list("Normal",0,2),tsz=200)
 
 ### compare the estimate with the truth
 plot(density(ob,n=1000),col="red",lwd=2,lty=3,type="l",ylim=c(0,0.4),xlab="",main="Normal error")
