@@ -2,9 +2,9 @@
 % Please edit documentation in R/pmledecon.R
 \name{pmledecon}
 \alias{pmledecon}
-\title{Deconvolution density estimation using penalized MLE}
+\title{Deconvolution Density Estimation using Penalized MLE}
 \usage{
-pmledecon(ob,error,supp,n,lmd,R,tsz,stsz,subid,conv)
+pmledecon(ob,error,supp,n,lmd,R,tsz,stsz,bsz,subid,conv)
 }
 \arguments{
 \item{ob}{Vector. The contaminated observed data.}
@@ -45,7 +45,7 @@ pmledecon(ob,error,supp,n,lmd,R,tsz,stsz,subid,conv)
   interval is divided into a fixed number of steps (default 1000). This
   sets the number of steps so that for the initial range, the step size
   is stsz.}
-
+\item{bsz}{Optional. The subsample size of the basis. Defalt is rounded result of sample size devided by 10 if the data's sample size is greater than 30 or 20 otherwise.}
 \item{subid}{Logical. Indicates whether to print the number of
   subbases completed. This can be helpful for diagnosing cases where
   the function fails to return a value, which can happen if too many
@@ -87,7 +87,7 @@ pmledecon(ob,error,supp,n,lmd,R,tsz,stsz,subid,conv)
     size less than 100, and $R=10^5$ for larger sample size. This has
     produced good results in a number of simulation studies. Appropriate
     values of 'R' will changed depending on the signal-noise ratio and
-    on the smoothness of the true density. 
+    on the smoothness of the true density.
 
     stsz' relates to the accuracy of our numerical evaluation of the
     convolution. Smaller 'stsz' means smaller sampling period and the
@@ -108,11 +108,11 @@ pmledecon(ob,error,supp,n,lmd,R,tsz,stsz,subid,conv)
 
     To ensure stability of the log-likelihood of the final solution, the
     'convll' value uses the censored log-likelihood. Observations with
-    likelihood less than $10^{-10}$ are replaced by $10^{-10}$. 
+    likelihood less than $10^{-10}$ are replaced by $10^{-10}$.
   }
 
 \examples{
-\donttest{
+\dontrun{
 ##############example for unknown error
 sz=esz=30
 set.seed(45217)
@@ -137,10 +137,10 @@ truth=rnorm(sz,0,1)
 error=rnorm(esz,0,2)
 ob=truth+error
 
-## In order for this example to run quickly, we set tsz=200.
+## In order for this example to run quickly, we set tsz=500.
 ## This is not accurate enough for practical use.
 
-est=pmledecon(ob,error=list("Normal",0,2),tsz=200)
+est=pmledecon(ob,error=list("Normal",0,2),tsz=500)
 
 ### compare the estimate with the truth
 plot(density(ob,n=1000),col="red",lwd=2,lty=3,type="l",ylim=c(0,0.4),xlab="",main="Normal error")

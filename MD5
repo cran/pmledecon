@@ -1,9 +1,4 @@
-451d2ac2b84f0727848534ea858bdc59 *DESCRIPTION
-1f8b7ea449187801bd8bab53be8524c7 *NAMESPACE
-04f172ca99005cb70d78e0170fa3ce77 *R/pmledecon.R
-dec4ad6448247cbff7b63c9a098aa632 *build/vignette.rds
-b26f70c97cc08525b2b383e63d78ba68 *inst/doc/pmledecon.R
-1df686aa5b0361004da3bf842718629c *inst/doc/pmledecon.Rnw
-e92feec7e26077164ed1fa4a55b70eef *inst/doc/pmledecon.pdf
-426f3eeaaeca3b4830fedf500dfef04f *man/pmledecon.Rd
-1df686aa5b0361004da3bf842718629c *vignettes/pmledecon.Rnw
+f6f6dbe52b32fa79f0f589a7c3ab734b *DESCRIPTION
+471df766f52eb5d122252b3425e4fd44 *NAMESPACE
+e55bd0a55c62c791d82a3b8a8f3ca20b *R/pmledecon.R
+e33f6b54e79fd64e942deee52cdcb72f *man/pmledecon.Rd
